@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # The Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: linkly-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: linkly
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: linkly_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # The Cache (Prepared for Layer 3, we add it now for convenience)
+  redis:
+    image: redis:alpine
+    container_name: linkly-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
