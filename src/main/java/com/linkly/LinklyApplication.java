@@ -1,4 +1,4 @@
-package com.linkly.linkly;
+package com.linkly;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
